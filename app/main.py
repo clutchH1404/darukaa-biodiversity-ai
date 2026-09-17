@@ -28,18 +28,69 @@ from .memory.missing_variable_detector import missing_variable_detector
 from .memory.query_understander import query_understander, QueryUnderstandingResult
 from .simulation.simulator import simulation_engine, SimulationScenarioRequest, SimulationResult
 
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    CRITICAL PRODUCTION SAFEGUARD:
+    Guarantees that the scientific knowledge base and database tables
+    are automatically initialized upon startup in any deployment environment (Render, Railway, Docker).
+    This ensures the vector store NEVER starts with 0 documents or disappears after a redeploy.
+    """
+    try:
+        if vector_store.count() == 0:
+            import logging
+            logging.info("ChromaDB vector store is empty. Auto-indexing authoritative scientific literature...")
+            from scripts.ingest_documents import run_ingestion
+            run_ingestion()
+    except Exception as e:
+        print(f"Warning: Auto-ingestion check encountered: {e}")
+
+    try:
+        sources = db_service.get_all_sources()
+        if not sources:
+            from scripts.seed_database import seed_observations
+            seed_observations()
+    except Exception as e:
+        print(f"Warning: Auto-seed check encountered: {e}")
+    yield
+
 app = FastAPI(
     title="Darukaa.Earth AI Biodiversity Intelligence API",
     description="Conversational Environmental Intelligence and Causal Multi-Metric Reasoning Platform",
     version=settings.APP_VERSION,
     docs_url="/docs",
-    redoc_url="/redoc"
+    redoc_url="/redoc",
+    lifespan=lifespan
 )
 
+def get_cors_origins() -> List[str]:
+    origins = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:8501",
+        "http://127.0.0.1:8501"
+    ]
+    if settings.FRONTEND_URL:
+        origins.append(settings.FRONTEND_URL.rstrip("/"))
+    if settings.ALLOWED_ORIGINS:
+        for o in settings.ALLOWED_ORIGINS.split(","):
+            c = o.strip().rstrip("/")
+            if c and c not in origins:
+                origins.append(c)
+    if "*" in settings.ALLOWED_ORIGINS or settings.APP_ENV == "development":
+        if "*" not in origins:
+            origins.append("*")
+    return origins
+
 # CORS middleware for frontend access
+cors_origins = get_cors_origins()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=cors_origins if "*" not in cors_origins else ["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

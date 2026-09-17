@@ -21,4 +21,4 @@ ENV API_HOST=0.0.0.0
 ENV API_PORT=8000
 ENV FRONTEND_PORT=8501
 
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 8000 & streamlit run frontend/streamlit_app.py --server.port 8501 --server.address 0.0.0.0"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

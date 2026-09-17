@@ -1,17 +1,24 @@
 import os
 from pathlib import Path
+from pydantic import ConfigDict
 from pydantic_settings import BaseSettings
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 class Settings(BaseSettings):
+    model_config = ConfigDict(env_file=".env", extra="ignore")
+
     APP_NAME: str = "Darukaa.Earth AI Biodiversity Intelligence"
     APP_VERSION: str = "1.0.0"
-    APP_ENV: str = "development"
-    API_HOST: str = "0.0.0.0"
-    API_PORT: int = 8000
-    FRONTEND_PORT: int = 8501
+    APP_ENV: str = os.environ.get("APP_ENV", "development")
+    API_HOST: str = os.environ.get("API_HOST", "0.0.0.0")
+    API_PORT: int = int(os.environ.get("PORT", os.environ.get("API_PORT", 8000)))
+    FRONTEND_PORT: int = int(os.environ.get("FRONTEND_PORT", 8501))
     
+    # Production CORS Settings
+    ALLOWED_ORIGINS: str = os.environ.get("ALLOWED_ORIGINS", "")
+    FRONTEND_URL: str = os.environ.get("FRONTEND_URL", "")
+
     # LLM Settings
     OPENAI_API_KEY: str = ""
     OPENAI_API_BASE: str = "https://api.openai.com/v1"
@@ -29,10 +36,6 @@ class Settings(BaseSettings):
     STRICT_GROUNDING: bool = True
     MIN_CONFIDENCE_THRESHOLD: float = 0.50
     MAX_RETRIEVAL_RESULTS: int = 6
-
-    class Config:
-        env_file = ".env"
-        extra = "ignore"
 
 settings = Settings()
 
