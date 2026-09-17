@@ -19,34 +19,28 @@
 ### What the System Does
 Darukaa.Earth ingests unstructured natural-language field observations and structured environmental measurements. It dynamically extracts relevant environmental metrics, identifies missing critical context, inquiries about missing measurements to avoid guessing, executes semantic vector retrieval against peer-reviewed literature, performs multi-variable causal reasoning across $\ge 3$ interconnected biophysical variables, projects empirical intervention outcomes, and issues 10-point actionable agroecological protocols backed by verifiable citations.
 
-### The Problem It Solves
-Standard generative chatbots routinely output hazardous ecological advice:
-- Recommending moisture-demanding cover crops in low-rainfall drylands without mulch termination, driving acute crop failure.
-- Suggesting monoculture tree planting in natural grasslands, destroying endemic floral biodiversity.
-- Fabricating citations, DOIs, and empirical recovery percentages.
-- Treating complex living ecosystems as single isolated variables (e.g., "nitrogen is low $\to$ add synthetic fertilizer"), ignoring the systemic cascades connecting soil organic carbon, moisture retention, pollinator habitats, and crop resilience.
+---
 
-### How Darukaa.Earth Solves It
-Darukaa.Earth fuses **conversational intelligence**, **authoritative RAG**, an **explicit directed causal relationship graph**, and **bounded empirical simulation models** into a unified, auditable intelligence console.
+## 2. Problem Statement
+
+Modern agricultural and land-management practices face accelerating ecological degradation, including soil carbon loss, water table exhaustion, and wild pollinator collapse. Land managers seeking AI guidance encounter three severe failure modes with conventional generative models:
+- **Single-Variable Reductionism**: Treating complex living ecosystems as single isolated variables (e.g. "nitrogen is low $\to$ add synthetic fertilizer"), ignoring that synthetic fertilizers disrupt soil mycorrhizal networks and accelerate runoff.
+- **Hallucinated Citations & Metrics**: Fabricating academic authors, fictional DOIs, and speculative recovery percentages without empirical backing.
+- **Blind Extrapolation**: Recommending moisture-demanding cover crops in low-rainfall drylands without mulch termination protocols, driving acute crop failure.
 
 ---
 
-## 2. Hackathon Problem
+## 3. Solution
 
-The hackathon challenges participants to build an **AI Environmental Scientist** capable of understanding the intricate interdependencies governing ecosystems, land use, climate, and biodiversity.
-
-Key challenge dimensions addressed:
-- **Ecosystem Understanding**: Grounded modeling of soil chemistry, hydrology, vegetation structure, and multi-trophic guilds.
-- **Land/Environment Context**: Differentiating between intensive monoculture, agroforestry, pastoral grazing, and fragmented remnants.
-- **Climate/Environmental Variables**: Coupling rainfall variability, vapor pressure deficit, drought status, and temperature extremes.
-- **Biodiversity Preservation**: Prioritizing wild pollinators, soil microbial respiration, and landscape dispersal corridors.
-- **Scientific Grounding**: Strict zero-hallucination policy where citations originate from authentic intergovernmental reports and journals.
-- **Actionable Recommendations**: Standardized 10-point protocols specifying operational actions, mechanisms, impacted metrics, time horizons, and trade-offs.
-- **Multi-Variable Reasoning**: Coupling at least 3 environmental variables to formulate holistic interventions.
+Darukaa.Earth resolves these failure modes through an auditable, hybrid neuro-symbolic architecture:
+- **Directed Causal Biophysical Graph**: A formal network of 29 biophysical nodes and 26 verified directional relationships modeling ecological feedback loops.
+- **Missing Context Interrogation**: Calculates parameter completeness score (<60%) and proactively queries the user for critical missing measurements before prescribing interventions.
+- **Zero-Hallucination RAG Grounding**: All interventions are anchored in 12 authentic, peer-reviewed global publications from FAO, IPCC, IPBES, Nature, and Science indexed in ChromaDB.
+- **Bounded Empirical Simulation**: Projects multi-year recovery trajectories for soil organic carbon, moisture retention, and biodiversity guilds.
 
 ---
 
-## 3. Key Features
+## 4. Key Features
 
 Only features implemented and verified in the codebase are documented below:
 
@@ -63,7 +57,7 @@ Only features implemented and verified in the codebase are documented below:
 
 ---
 
-## 4. System Architecture
+## 5. System Architecture
 
 ```
                              DARUKAA.EARTH ECOSYSTEM
@@ -85,7 +79,7 @@ Only features implemented and verified in the codebase are documented below:
 
 ---
 
-## 5. AI Pipeline
+## 6. AI Pipeline
 
 The platform visibly executes and exposes the complete 7-stage environmental intelligence chain:
 
@@ -113,7 +107,7 @@ The platform visibly executes and exposes the complete 7-stage environmental int
 
 ---
 
-## 6. Knowledge & RAG System
+## 7. Knowledge Base & RAG
 
 ### Source Literature & Storage
 The knowledge base indexes 12 peer-reviewed reports stored in `data/knowledge/scientific_knowledge_seed.json` and processed into `data/processed/knowledge_chunks.json`.
@@ -140,7 +134,7 @@ On startup, `app/main.py` checks `vector_store.count()`. If the vector store is 
 
 ---
 
-## 7. Multi-Metric Reasoning
+## 8. Multi-Metric Reasoning
 
 The multi-metric reasoning engine (`app/reasoning/engine.py`) models biophysical dependencies across 29 ecological nodes and 26 directed causal pathways (`app/reasoning/relationship_graph.py`).
 
@@ -158,7 +152,7 @@ The engine requires coupling **at least 3 variables** before generating systemic
 
 ---
 
-## 8. Conversational Intelligence
+## 9. Conversational Intelligence
 
 - **Query Understanding** (`app/memory/query_understander.py`): Dynamically extracts 20+ variables (soil health, SOC %, soil degradation, water availability, water stress, rainfall, temperature, vegetation cover, fragmentation, land use, pollinators, wildlife, connectivity).
 - **Missing Variable Discovery** (`app/memory/missing_variable_detector.py`): Identifies unstated critical measurements and formulates specific clarifying questions.
@@ -166,7 +160,7 @@ The engine requires coupling **at least 3 variables** before generating systemic
 
 ---
 
-## 9. Recommendation Output
+## 10. Recommendation Output
 
 Every recommendation generated by `app/recommendations/generator.py` conforms to the standardized 10-point schema:
 1. **Title & Identifier** (e.g., `REC-1-INT-COV-01`)
@@ -182,7 +176,7 @@ Every recommendation generated by `app/recommendations/generator.py` conforms to
 
 ---
 
-## 10. Technology Stack
+## 11. Technology Stack
 
 | Layer | Technology | Version | Purpose |
 | :--- | :--- | :--- | :--- |
@@ -200,7 +194,7 @@ Every recommendation generated by `app/recommendations/generator.py` conforms to
 
 ---
 
-## 11. Project Structure
+## 12. Project Structure
 
 ```
 darukaa-biodiversity-ai/
@@ -280,7 +274,7 @@ darukaa-biodiversity-ai/
 
 ---
 
-## 12. Database / Schema
+## 13. Database / Schema
 
 ### SQLite Relational Database (`data/darukaa_biodiversity.db`)
 Managed by `app/services/db_service.py` with 3 core tables:
@@ -299,7 +293,23 @@ Managed by `app/services/db_service.py` with 3 core tables:
 
 ---
 
-## 13. Local Installation
+## 14. API Documentation
+
+Interactive OpenAPI / Swagger documentation is available live at `https://darukaa-biodiversity-backend.onrender.com/docs`.
+
+### Key Endpoints:
+- `GET /health`: Diagnostic metrics (`{"status": "healthy", "vector_store_documents": 12, ...}`).
+- `POST /understand`: Accepts `{"query": "..."}`, returns detected variables, missing context questions, and spatial/temporal tags.
+- `GET /graph`: Exports baseline directed biophysical graph (29 nodes, 26 edges).
+- `POST /graph`: Accepts `{"environmental_state": {...}}`, returns state-calibrated biophysical graph with stress indicators.
+- `POST /simulate`: Accepts `{"intervention_type": "...", "intensity": 0.75, "time_horizon_years": 5}`, returns empirical deltas.
+- `POST /retrieve`: Accepts `{"query": "...", "environmental_variables": [...]}`, returns ranked evidence chunks with similarity scores.
+- `POST /chat`: Primary conversational endpoint; takes message and environmental state, executes the full 7-stage pipeline, returns 10-point recommendations.
+- `GET /session/{id}/context`: Segmented cumulative state across 7 domains.
+
+---
+
+## 15. Local Installation
 
 ```bash
 # 1. Clone repository
@@ -331,7 +341,7 @@ npm run dev
 
 ---
 
-## 14. Environment Variables
+## 16. Environment Variables
 
 All variables are defined with defaults in `.env.example`:
 
@@ -348,23 +358,7 @@ All variables are defined with defaults in `.env.example`:
 
 ---
 
-## 15. API Documentation
-
-Interactive OpenAPI / Swagger documentation is available live at `http://localhost:8000/docs`.
-
-### Key Endpoints:
-- `GET /health`: Diagnostic metrics (`{"status": "healthy", "vector_store_documents": 12, ...}`).
-- `POST /understand`: Accepts `{"query": "..."}`, returns detected variables, missing context questions, and spatial/temporal tags.
-- `GET /graph`: Exports baseline directed biophysical graph (29 nodes, 26 edges).
-- `POST /graph`: Accepts `{"environmental_state": {...}}`, returns state-calibrated biophysical graph with stress indicators.
-- `POST /simulate`: Accepts `{"intervention_type": "...", "intensity": 0.75, "time_horizon_years": 5}`, returns empirical deltas.
-- `POST /retrieve`: Accepts `{"query": "...", "environmental_variables": [...]}`, returns ranked evidence chunks with similarity scores.
-- `POST /chat`: Primary conversational endpoint; takes message and environmental state, executes the full 7-stage pipeline, returns 10-point recommendations.
-- `GET /session/{id}/context`: Segmented cumulative state across 7 domains.
-
----
-
-## 16. Running with Docker
+## 17. Docker Setup
 
 ```bash
 # Build and run backend + frontend stack
@@ -375,7 +369,7 @@ docker-compose up --build
 
 ---
 
-## 17. Deployment Architecture
+## 18. Deployment
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/clutchH1404/darukaa-biodiversity-ai)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/clutchH1404/darukaa-biodiversity-ai&root-directory=web)
@@ -400,7 +394,7 @@ The application is architected for zero-maintenance production deployment:
 
 ---
 
-## 18. Demo Scenarios
+## 19. Demo Scenarios
 
 The system includes 4 judge demo scenarios:
 
@@ -419,7 +413,7 @@ The system includes 4 judge demo scenarios:
 
 ---
 
-## 19. Hackathon Evaluation Alignment
+## 20. Hackathon Evaluation Alignment
 
 | Evaluation Area | System Implementation | Verification Evidence |
 | :--- | :--- | :--- |
@@ -428,15 +422,6 @@ The system includes 4 judge demo scenarios:
 | **C. Knowledge System** | ChromaDB persistent vector store with 12 authoritative reports; hybrid semantic and variable overlap re-ranking. | `app/rag/retriever.py`, `app/rag/vector_store.py`, `test_rag_retrieval.py` (Passed) |
 | **D. Conversational Intelligence** | Dynamic missing context detection; 20+ variable query parsing; segmented multi-turn session context. | `app/memory/query_understander.py`, `app/memory/session_memory.py`, `test_conversation_memory.py` (Passed) |
 | **E. Output Clarity** | 10-point recommendation schema; 7-stage Reasoning HUD; interactive biophysical graph; empirical simulation engine. | `web/src/components/`, `app/simulation/simulator.py`, `test_api_endpoints.py` (Passed) |
-
----
-
-## 20. Security
-
-- **Prompt Injection Isolation**: `SecurityGuard.sanitize_user_input()` strips malicious delimiters and encloses RAG evidence within inert `<evidence_item>` tags.
-- **CORS Protection**: Dynamic origin validation restricting production requests to authorized frontend domains.
-- **Secret Hygiene**: Zero committed `.env` files; API keys and database credentials are read exclusively from environment variables.
-- **Input Validation**: Strongly typed Pydantic models validate all JSON payloads against bounded ranges (e.g., pH 0–14, SOC 0–100%).
 
 ---
 
@@ -457,14 +442,23 @@ pytest -v tests/
 
 ---
 
-## 22. Limitations
+## 22. Security
+
+- **Prompt Injection Isolation**: `SecurityGuard.sanitize_user_input()` strips malicious delimiters and encloses RAG evidence within inert `<evidence_item>` tags.
+- **CORS Protection**: Dynamic origin validation restricting production requests to authorized frontend domains.
+- **Secret Hygiene**: Zero committed `.env` files; API keys and database credentials are read exclusively from environment variables.
+- **Input Validation**: Strongly typed Pydantic models validate all JSON payloads against bounded ranges (e.g., pH 0–14, SOC 0–100%).
+
+---
+
+## 23. Limitations
 
 1. **Empirical Simulation Bounding**: Intervention simulation uses empirical transfer models from peer-reviewed literature. Speculative methods transparently return `"Simulation model unavailable"` to prevent fabricated predictions.
 2. **Satellite Telemetry**: Multispectral Sentinel-2 layers are ingested as calibrated regional observations rather than real-time daily orbital streaming.
 
 ---
 
-## 23. Future Scope
+## 24. Future Scope
 
 - Direct integration with Google Earth Engine API for automated real-time Sentinel-2 NDVI and surface temperature extraction.
 - Edge deployment for offline field tablet use in remote agricultural cooperatives.
@@ -472,11 +466,11 @@ pytest -v tests/
 
 ---
 
-## 24. Hackathon Submission Links
+## 25. Project Links
 
 - **GitHub Repository**: [https://github.com/clutchH1404/darukaa-biodiversity-ai](https://github.com/clutchH1404/darukaa-biodiversity-ai)
 - **Local Web Console**: `http://localhost:3000`
-- **FastAPI Documentation**: `http://localhost:8000/docs`
+- **FastAPI Documentation**: `https://darukaa-biodiversity-backend.onrender.com/docs`
 - **Streamlit Dashboard**: `http://localhost:8501`
 
 ---

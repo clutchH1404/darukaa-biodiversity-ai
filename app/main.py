@@ -91,10 +91,23 @@ cors_origins = get_cors_origins()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins if "*" not in cors_origins else ["*"],
+    allow_origin_regex=r"^https?:\/\/(.*\.vercel\.app|localhost|127\.0\.0\.1)(:\d+)?$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/", tags=["System"])
+def root():
+    """Root discovery endpoint confirming API health and documentation links."""
+    return {
+        "service": settings.APP_NAME,
+        "status": "online",
+        "version": settings.APP_VERSION,
+        "docs": "/docs",
+        "health": "/health",
+        "system": "Conversational Environmental Intelligence and Causal Multi-Metric Reasoning Platform"
+    }
 
 class RetrieveRequest(BaseModel):
     query: str

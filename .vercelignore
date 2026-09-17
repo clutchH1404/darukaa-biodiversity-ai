@@ -1,0 +1,17 @@
+# Prevent Vercel from bundling or executing Python backend services
+app/
+frontend/
+data/
+scripts/
+tests/
+Dockerfile
+docker-compose.yml
+render.yaml
+railway.json
+Procfile
+requirements.txt
+*.py
+*.pyc
+__pycache__/
+*.db
+*.sqlite
