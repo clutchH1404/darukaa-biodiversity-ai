@@ -377,15 +377,20 @@ docker-compose up --build
 
 ## 17. Deployment Architecture
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/clutchH1404/darukaa-biodiversity-ai)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/clutchH1404/darukaa-biodiversity-ai&root-directory=web)
+
 The application is architected for zero-maintenance production deployment:
 
 ### Backend Deployment (Render or Railway)
+- **1-Click Deploy Link**: [Deploy on Render](https://render.com/deploy?repo=https://github.com/clutchH1404/darukaa-biodiversity-ai)
 - **Manifest**: `render.yaml` or `railway.json` / `Procfile`.
 - **Build Command**: `pip install -r requirements.txt && python scripts/ingest_documents.py && python scripts/seed_database.py`
 - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 - **Health Check Path**: `/health`
 
 ### Frontend Deployment (Vercel)
+- **1-Click Deploy Link**: [Deploy on Vercel](https://vercel.com/new/clone?repository-url=https://github.com/clutchH1404/darukaa-biodiversity-ai&root-directory=web)
 - **Root Directory**: `web`
 - **Framework**: `Vite`
 - **Build Command**: `npm run build`
