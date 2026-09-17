@@ -21,9 +21,12 @@ from .rag.retriever import retrieve_evidence
 from .rag.chunker import chunker
 from .rag.vector_store import vector_store
 from .reasoning.engine import reasoning_engine
+from .reasoning.relationship_graph import relationship_graph
 from .recommendations.generator import recommendation_generator
 from .memory.session_memory import session_memory
 from .memory.missing_variable_detector import missing_variable_detector
+from .memory.query_understander import query_understander, QueryUnderstandingResult
+from .simulation.simulator import simulation_engine, SimulationScenarioRequest, SimulationResult
 
 app = FastAPI(
     title="Darukaa.Earth AI Biodiversity Intelligence API",
@@ -48,6 +51,12 @@ class RetrieveRequest(BaseModel):
     geographic_context: Optional[Dict[str, Any]] = None
     top_k: int = 5
 
+class QueryUnderstandRequest(BaseModel):
+    query: str
+
+class GraphRequest(BaseModel):
+    environmental_state: Optional[EnvironmentalState] = None
+
 @app.get("/health", tags=["System"])
 def get_health():
     """System health check and diagnostic metrics."""
@@ -59,6 +68,49 @@ def get_health():
         "database_connected": True,
         "llm_online": llm_service.is_configured
     }
+
+@app.post("/understand", response_model=QueryUnderstandingResult, tags=["Query Understanding"])
+@app.post("/query/understand", response_model=QueryUnderstandingResult, tags=["Query Understanding"])
+def understand_query_endpoint(req: QueryUnderstandRequest):
+    """
+    Evaluates natural-language observation, identifies >=20 environmental variables,
+    flags missing context, and resolves spatial/temporal qualifiers.
+    """
+    sanitized = SecurityGuard.sanitize_user_input(req.query)
+    return query_understander.understand_query(sanitized)
+
+@app.get("/graph", tags=["Relationship Graph"])
+@app.get("/environment/graph", tags=["Relationship Graph"])
+def get_default_environmental_graph():
+    """
+    Returns baseline biophysical causal relationship graph with nodes and directed edges.
+    """
+    return relationship_graph.export_graph()
+
+@app.post("/graph", tags=["Relationship Graph"])
+@app.post("/environment/graph", tags=["Relationship Graph"])
+def get_contextual_environmental_graph(req: GraphRequest):
+    """
+    Returns biophysical causal graph populated with values, trends, and stress indicators
+    derived from the provided environmental state.
+    """
+    return relationship_graph.export_graph(req.environmental_state)
+
+@app.post("/simulate", response_model=SimulationResult, tags=["Biophysical Simulation"])
+def simulate_intervention_endpoint(req: SimulationScenarioRequest):
+    """
+    Empirical scenario modeling for agroecological interventions.
+    Transparently reports 'unavailable' for unmodeled interventions.
+    """
+    return simulation_engine.simulate(req)
+
+@app.get("/session/{conversation_id}/context", tags=["Memory"])
+def get_session_structured_context(conversation_id: str):
+    """
+    Retrieves structured multi-turn environmental context segmented into domains:
+    location, soil, water, vegetation, land_use, biodiversity, climate, and history.
+    """
+    return session_memory.get_structured_context(conversation_id)
 
 @app.get("/sources", tags=["Scientific Evidence"])
 def get_sources():

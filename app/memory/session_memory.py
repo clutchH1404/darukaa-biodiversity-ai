@@ -81,4 +81,45 @@ class SessionMemory:
         session = self.get_or_create_session(conversation_id)
         return EnvironmentalState(**session.get("accumulated_state", {}))
 
+    def get_structured_context(self, conversation_id: str) -> Dict[str, Any]:
+        """
+        Returns structured environmental context segmented into domains
+        as specified in Hackathon Section 7.
+        """
+        session = self.get_or_create_session(conversation_id)
+        accumulated = session.get("accumulated_state", {})
+        
+        return {
+            "conversation_id": conversation_id,
+            "location": {
+                k: accumulated[k] for k in ["location_name", "latitude", "longitude", "region", "country", "climate_zone"]
+                if k in accumulated and accumulated[k] is not None
+            },
+            "soil": {
+                k: accumulated[k] for k in ["soil_ph", "soil_organic_carbon", "soil_moisture"]
+                if k in accumulated and accumulated[k] is not None
+            },
+            "water": {
+                k: accumulated[k] for k in ["water_availability", "irrigation", "water_stress"]
+                if k in accumulated and accumulated[k] is not None
+            },
+            "vegetation": {
+                k: accumulated[k] for k in ["monoculture_or_polyculture", "habitat_diversity", "land_cover"]
+                if k in accumulated and accumulated[k] is not None
+            },
+            "land_use": {
+                k: accumulated[k] for k in ["land_use", "habitat_fragmentation", "land_disturbance", "pesticide_intensity", "deforestation_level"]
+                if k in accumulated and accumulated[k] is not None
+            },
+            "biodiversity": {
+                k: accumulated[k] for k in ["species_richness", "species_diversity", "pollinator_presence", "microbial_diversity"]
+                if k in accumulated and accumulated[k] is not None
+            },
+            "climate": {
+                k: accumulated[k] for k in ["temperature", "rainfall", "rainfall_variability", "drought_condition"]
+                if k in accumulated and accumulated[k] is not None
+            },
+            "conversation_history": session.get("messages", [])
+        }
+
 session_memory = SessionMemory()
