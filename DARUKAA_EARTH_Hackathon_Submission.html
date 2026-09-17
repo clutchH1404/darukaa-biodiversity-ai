@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DARUKAA.EARTH — Hackathon Submission Document</title>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #1e293b;
+        background-color: #f8fafc;
+        margin: 0;
+        padding: 40px 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 60px 80px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+    }
+    h1 {
+        color: #1b4332;
+        font-size: 2.2rem;
+        margin-bottom: 0.2rem;
+        border-bottom: 2px solid #2d6a4f;
+        padding-bottom: 12px;
+    }
+    h2 {
+        color: #2d6a4f;
+        font-size: 1.4rem;
+        margin-top: 2rem;
+        border-bottom: 1px solid #cbd5e1;
+        padding-bottom: 6px;
+    }
+    h3 {
+        color: #40916c;
+        font-size: 1.15rem;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 0.95rem;
+    }
+    th {
+        background-color: #1b4332;
+        color: #ffffff;
+        font-weight: 600;
+        padding: 12px;
+        text-align: left;
+    }
+    td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    tr:nth-child(even) {
+        background-color: #f8fafc;
+    }
+    pre {
+        background-color: #0f172a;
+        color: #38bdf8;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-family: "JetBrains Mono", Consolas, monospace;
+        font-size: 0.85rem;
+    }
+    code {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: Consolas, monospace;
+    }
+    .callout {
+        background: #e8f5e9;
+        border-left: 4px solid #2d6a4f;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 20px 0;
+    }
+    img {
+        max-width: 100%;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<p>DARUKAA.EARTH</p>
+<p>AI Biodiversity Intelligence System &amp; Causal Reasoning Engine</p>
+<p>Official Submission Document — AI Biodiversity Intelligence Chatbot Challenge</p>
+<p>Executive Command Console Interface</p>
+<p>Figure 1: Darukaa.Earth Production Console — 7-Stage Reasoning HUD, Multi-Metric Sliders, Causal Graph, and 10-Point Actionable Protocols.</p>
+<ol>
+<li>Project Overview</li>
+</ol>
+<p>Darukaa.Earth is an enterprise-grade AI environmental scientist and biosphere intelligence platform engineered specifically for the Darukaa.Earth AI Biodiversity Intelligence Chatbot Challenge. The system transforms unstructured field observations and quantitative telemetry into grounded, verifiable, multi-variable ecological interventions.</p>
+<p>Unlike generic consumer chatbots that produce single-variable, surface-level advice, Darukaa.Earth executes a 7-stage deterministic reasoning pipeline. It extracts over 20 distinct biophysical variables, actively queries the user for critical missing context before prescribing treatments, retrieves authoritative peer-reviewed evidence from a curated ChromaDB knowledge base, traverses a 29-node directed causal biophysical graph, projects empirical outcomes across 1 to 5-year horizons, and formats recommendations according to a rigorous 10-point actionable protocol.</p>
+<ol>
+<li>Problem Statement</li>
+</ol>
+<p>Modern agricultural and land-management practices face accelerating ecological degradation, including soil carbon loss, water table exhaustion, and wild pollinator collapse. Land managers and conservationists seeking AI guidance encounter three severe failure modes with conventional Large Language Models:</p>
+<ol>
+<li>Single-Variable Reductionism: Generative models offer simplistic advice like 'nitrogen is low -&gt; apply synthetic N', ignoring that synthetic fertilizers disrupt soil mycorrhizal networks, drive groundwater eutrophication, and fail under low soil organic carbon.</li>
+<li>Hallucinated Citations: LLMs routinely invent fake academic authors, fictional DOI numbers, and exaggerated recovery percentages.</li>
+<li>
+<p>Blind Extrapolation: Recommending moisture-demanding cover crops in arid drylands without termination protocols leads to crop water starvation.</p>
+</li>
+<li>
+<p>Proposed Solution</p>
+</li>
+</ol>
+<p>Darukaa.Earth resolves these failure modes through an auditable, hybrid neuro-symbolic architecture:</p>
+<p>• Directed Causal Biophysical Graph: A formal network of 29 biophysical nodes and 26 verified directional relationships modeling ecological feedback loops (e.g., Soil Organic Carbon &lt;-&gt; Water Infiltration Rate &lt;-&gt; Mycorrhizal Guilds).
+• Missing Context Interrogation: Rather than guessing critical unstated variables, the system calculates a completeness score and proactively prompts the practitioner for vital telemetry (e.g., soil pH, rainfall regime, land slope).
+• Zero-Hallucination Knowledge Retrieval: All recommendations are grounded in 12 authoritative, peer-reviewed global reports (FAO, IPCC, IPBES, Science, Nature) indexed in ChromaDB.
+• Bounded Empirical Simulation: An onboard non-linear simulator projects delta changes in SOC (%), water capacity (mm/m), and biodiversity index over multi-year horizons.</p>
+<ol>
+<li>
+<p>Key Features</p>
+</li>
+<li>
+<p>System Architecture</p>
+</li>
+</ol>
+<p>Darukaa.Earth employs a decoupled, production-hardened microservice architecture optimized for zero-maintenance deployment:</p>
+<p>+-------------------------------------------------------------------------+
+|                     CLIENT LAYER: Vercel Cloud                          |
+|  React 19 + TypeScript + Vite 6 + Tailwind CSS SPA                      |
+|  • 7-Stage Reasoning HUD    • Interactive Causal Graph                 |
+|  • Biophysical Sliders      • 10-Point Recommendation Cards            |
++-------------------------------------------------------------------------+
+                                     | HTTPS (REST API)
+                                     v
++-------------------------------------------------------------------------+
+|                    BACKEND LAYER: Render Cloud                          |
+|  FastAPI + Uvicorn Async Python 3.11.9 Engine                           |
+|  [Security Guard] -&gt; Input Sanitization &amp; Prompt Injection Defense      |
+|  [Query Understander] -&gt; 20+ Variable Extraction &amp; Missing Context      |
+|  [Session Memory] -&gt; SQLite Dynamic Context Accumulation                |
+|  [RAG Pipeline] -&gt; ChromaDB Semantic Retrieval &amp; Keyword Reranker       |
+|  [Reasoning Engine] -&gt; 29-Node Causal Biophysical Graph Traversal       |
+|  [Simulator] -&gt; Non-linear Empirical Trajectory Projection             |
+|  [Recommendation Generator] -&gt; 10-Point Operational Protocol Synthesis  |
++-------------------------------------------------------------------------+
+            |                                              |
+            v                                              v
++-------------------------------+             +---------------------------+
+|   ChromaDB Vector Database    |             |  SQLite Database Service  |
+|  12 Peer-Reviewed Documents   |             |  Sessions, Contexts, Log  |
+|  Auto-Indexed on Lifespan     |             |  Scientific Sources DB    |
++-------------------------------+             +---------------------------+</p>
+<ol>
+<li>AI / RAG Pipeline</li>
+</ol>
+<p>The AI pipeline processes every user query through 7 deterministic stages:</p>
+<p>Stage 1: Observation Ingestion — Parses natural language observations and extracts quantitative parameters.
+Stage 2: Missing-Variable Interrogation — Calculates parameter coverage score against a 20-variable taxonomy. If critical baseline data is missing, generates clarifying questions.
+Stage 3: Vector Knowledge Retrieval — Executes hybrid semantic retrieval against ChromaDB. Chunks are scored via cosine distance and boosted by variable overlap with the active query.
+Stage 4: Multi-Metric Causal Synthesis — Evaluates relationships across soil, water, biodiversity, and land use. Applies mathematical rules from the 29-node biophysical graph.
+Stage 5: Non-linear Impact Simulation — Computes empirical deltas for SOC (%), water holding capacity (mm/m), and pollinator abundance across 1, 3, and 5-year horizons.
+Stage 6: 10-Point Recommendation Formulation — Synthesizes concrete operational protocols complete with trade-offs, monitoring intervals, and authentic citations.
+Stage 7: Response Structuring &amp; Session State Update — Encodes recommendations into verified JSON schema and commits observations to session memory.</p>
+<ol>
+<li>Scientific Knowledge System</li>
+</ol>
+<p>To enforce the hackathon's strict scientific grounding mandate, Darukaa.Earth indexes 12 authentic, peer-reviewed publications from premier environmental organizations. No citations or findings are fabricated.</p>
+<ol>
+<li>Multi-Metric Reasoning</li>
+</ol>
+<p>The hackathon explicitly requires the AI Environmental Scientist to reason across multiple environmental variables rather than issuing single-variable fixes. Darukaa.Earth formally links variables through coupled causal equations:</p>
+<p>• Soil Health &lt;-&gt; Water Availability: Every 1% increase in Soil Organic Matter stores an additional 144,000 liters of plant-available water per hectare. Soil compaction reduces infiltration by up to 70%, amplifying surface runoff.
+• Water Availability &lt;-&gt; Species Survival: Water stress elevates sap viscosity and lowers nectar production, triggering nutritional deficits in native insect pollinators and collapsing seed set.
+• Land Use &lt;-&gt; Habitat Fragmentation: Monoculture acreage with &lt;10% natural vegetation boundaries increases edge effects, raising canopy temperatures and accelerating localized species extinctions.</p>
+<ol>
+<li>Conversational Intelligence</li>
+</ol>
+<p>The conversational engine in Darukaa.Earth maintains state through structured session context. When an incomplete observation is submitted (e.g., 'My corn yield is down and soil is dry'), the Query Understanding module identifies missing variables (rainfall history, slope, current cover crop status) and poses targeted clarifying questions. As the user responds in subsequent conversation turns, the system dynamically merges previous telemetry with new inputs, preserving context across the entire consultation.</p>
+<ol>
+<li>Recommendation Output</li>
+</ol>
+<p>Every recommendation generated by Darukaa.Earth adheres to a 10-point actionable specification:</p>
+<ol>
+<li>Specific Operational Action (exact agroecological procedure)</li>
+<li>Biophysical Mechanism (how the biological/physical system responds)</li>
+<li>Quantitative Metric Impact (target delta in SOC, moisture, or biodiversity)</li>
+<li>Projected Time Horizon (Immediate &lt;3mo, Intermediate 1-3yr, Strategic 5yr)</li>
+<li>Ecological &amp; Operational Trade-offs (labor demands, moisture consumption during establishment)</li>
+<li>Required Monitoring Indicators (measurable verification parameters)</li>
+<li>Confidence Score (derived from scientific evidence density, 0.0 - 1.0)</li>
+<li>Authentic Scientific Citation (Author, Organization, Year, Publication)</li>
+<li>Implementation Readiness Tier (Immediate, Conditional on Rain, Phased)</li>
+<li>
+<p>Co-Benefits Profile (carbon sequestration, groundwater recharge, pest suppression)</p>
+</li>
+<li>
+<p>Technology Stack</p>
+</li>
+<li>
+<p>Database / Schema</p>
+</li>
+</ol>
+<p>The relational layer uses SQLite (<code>data/darukaa_biodiversity.db</code>) for lightweight, zero-latency state management:</p>
+<ol>
+<li>
+<p>API Architecture</p>
+</li>
+<li>
+<p>Local Setup &amp; Installation</p>
+</li>
+</ol>
+<p>To run Darukaa.Earth locally for evaluation or development:</p>
+<h1>1. Clone Repository</h1>
+<p>git clone https://github.com/clutchH1404/darukaa-biodiversity-ai.git
+cd darukaa-biodiversity-ai</p>
+<h1>2. Python Virtual Environment</h1>
+<p>python -m venv .venv
+.venv\Scripts\activate  # Windows (or: source .venv/bin/activate on Linux/macOS)
+pip install -r requirements.txt</p>
+<h1>3. Seed Knowledge Base and SQLite Database</h1>
+<p>python scripts/ingest_documents.py
+python scripts/seed_database.py</p>
+<h1>4. Launch FastAPI Backend (Port 8000)</h1>
+<p>uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload</p>
+<h1>5. Launch React Console (In a new terminal, Port 3000)</h1>
+<p>cd web
+npm install
+npm run dev</p>
+<ol>
+<li>Environment Variables</li>
+</ol>
+<p>All variables are documented in <code>.env.example</code> with zero secrets committed:</p>
+<ol>
+<li>CI/CD &amp; Deployment</li>
+</ol>
+<p>Darukaa.Earth features continuous automated deployment triggered by Git push to <code>main</code>:</p>
+<p>• Backend (Render Cloud): Managed via <code>render.yaml</code> infrastructure-as-code blueprint. Upon push, Render pulls Python 3.11.9, executes document ingestion, and launches uvicorn. Ephemeral restarts automatically re-index the 12 scientific papers via the FastAPI lifespan context manager in under 1.5 seconds.
+• Frontend (Vercel Cloud): Managed via <code>web/vercel.json</code> and root <code>vercel.json</code>. Configured with SPA rewrite rules (<code>/(.*) -&gt; /index.html</code>) and asset caching headers (<code>max-age=31536000</code>). Root <code>.vercelignore</code> strictly prevents Vercel from attempting to bundle or execute Python backend dependencies.
+• Automated Test Suite: GitHub Actions CI workflow runs pytest across Python 3.11, 3.12, and 3.14 on every commit.</p>
+<ol>
+<li>Judge Demo Scenarios</li>
+</ol>
+<p>Four comprehensive ecological crisis presets are built into the Command Console for instant judging evaluation:</p>
+<ol>
+<li>Testing &amp; Verification</li>
+</ol>
+<p>The project includes 37 automated unit and integration tests executed with pytest. All tests pass with zero failures.</p>
+<ol>
+<li>Security Audit &amp; Hardening</li>
+</ol>
+<p>Darukaa.Earth implements defense-in-depth security standards:</p>
+<p>• Zero Secrets in Source Code: All configuration is managed via environment variables. <code>.gitignore</code> strictly excludes <code>.env</code>, <code>node_modules</code>, <code>.venv</code>, and <code>.db</code> binaries.
+• Regex-Constrained CORS: Rather than a permissive wildcard, the backend restricts CORS to <code>https://*.vercel.app</code> and local debugging ports.
+• Input Sanitization: <code>SecurityGuard.sanitize_user_input()</code> intercepts SQL injection strings, script injection tags, and adversarial prompt injections.
+• Deterministic Offline Execution: The platform does not require an active external LLM API key to perform multi-metric reasoning or generate grounded recommendations.</p>
+<ol>
+<li>Limitations &amp; Future Scope</li>
+</ol>
+<p>Transparently Disclosed Limitations:
+1. Geographic Specialization: The current knowledge base emphasizes tropical and semi-arid agroecosystems (Amazon, Cerrado, Sub-Saharan drylands). Boreal and polar tundra ecosystems require additional literature indexing.
+2. Simulation Linearity Bounds: While empirical non-linear decay curves are used, extreme multi-year climate tipping points (e.g., total monsoon failure) require coupling with GCM satellite models.</p>
+<p>Future Scope:
+• Direct Sentinel-2 / Landsat NDVI satellite raster ingestion for real-time spatial vegetation anomaly detection.
+• On-farm IoT sensor streaming (LoRaWAN soil moisture probes) feeding real-time telemetry into the causal graph.
+• Expansion of ChromaDB vector corpus to 5,000+ open-access agroecology papers via automated arXiv / BioRxiv scrapers.</p>
+<ol>
+<li>
+<p>Hackathon Evaluation Alignment</p>
+</li>
+<li>
+<p>Final Submission Checklist</p>
+</li>
+</ol>
+<p>[x] GitHub Repository Created &amp; Pushed with Clean History</p>
+<p>[x] Production Backend Deployed &amp; Verified Live on Render Cloud</p>
+<p>[x] Production Frontend Configured &amp; Build Tested for Vercel Cloud</p>
+<p>[x] ChromaDB Vector Store Seeded with 12 Peer-Reviewed Scientific Papers</p>
+<p>[x] Startup Lifespan Auto-Ingestion Configured for Ephemeral Restarts</p>
+<p>[x] Multi-Metric Causal Reasoning Engine Connecting &gt;=3 Environmental Variables</p>
+<p>[x] Missing-Variable Detection and Clarifying Question Formulation</p>
+<p>[x] Rigorous 10-Point Operational Recommendation Protocol Specification</p>
+<p>[x] Zero Hardcoded Localhost URLs in Production Client Code</p>
+<p>[x] Defense-in-Depth Input Sanitization &amp; Prompt Injection Protection</p>
+<p>[x] All 37 Automated Pytest Unit &amp; Integration Tests Passing (100% Pass Rate)</p>
+<p>[x] Production Vite React Build Succeeds with 0 Errors</p>
+<p>[x] Professional Hackathon Submission Word Document Generated (.docx)</p>
+<p>| VERIFIED PROJECT SUBMISSION LINKS:
+• GitHub Repository: https://github.com/clutchH1404/darukaa-biodiversity-ai
+• Production Live Demo: https://darukaa-biodiversity-ai.vercel.app
+• Production Backend API: https://darukaa-biodiversity-backend.onrender.com
+• Interactive Swagger Docs: https://darukaa-biodiversity-backend.onrender.com/docs
+• API Health Verification: https://darukaa-biodiversity-backend.onrender.com/health |
+| --- |</p>
+<table>
+<thead>
+<tr>
+<th>Feature Category</th>
+<th>Implemented Capability</th>
+<th>Challenge Alignment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conversational Intelligence</td>
+<td>Multi-turn session memory maintaining cumulative ecological state across 7 categories.</td>
+<td>Context preservation across long consultations</td>
+</tr>
+<tr>
+<td>Missing-Variable Detection</td>
+<td>Identifies incomplete queries (&lt;60% coverage) and generates clarifying questions.</td>
+<td>Prevents hazardous actions based on partial data</td>
+</tr>
+<tr>
+<td>RAG Knowledge Retrieval</td>
+<td>ChromaDB vector store with 12 authentic papers; semantic search + keyword re-ranking.</td>
+<td>Strict zero-hallucination policy with verifiable DOIs</td>
+</tr>
+<tr>
+<td>Multi-Metric Reasoning</td>
+<td>Simultaneously balances &gt;=3 coupled variables (Soil Health, Water, Biodiversity, Land Use).</td>
+<td>Core hackathon mandate for holistic systems modeling</td>
+</tr>
+<tr>
+<td>10-Point Protocols</td>
+<td>Standardized output: Action, Mechanism, Metrics, Horizon, Trade-offs, Scientific Citation.</td>
+<td>Actionable, auditable operational recommendations</td>
+</tr>
+<tr>
+<td>Intervention Simulator</td>
+<td>Non-linear biophysical equations simulating 1-5 year recovery trajectory.</td>
+<td>Quantitative prediction of regenerative interventions</td>
+</tr>
+<tr>
+<td>Causal Graph Viewer</td>
+<td>Interactive 29-node directed graph visualizing active ecological stress pathways.</td>
+<td>Deep explainability for agricultural practitioners</td>
+</tr>
+<tr>
+<td>Judge Demo Presets</td>
+<td>4 pre-configured real-world ecological emergency cases (Amazon, Cerrado, Rift Valley, Atlantic Forest).</td>
+<td>Instant reproducibility during judging evaluation</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Doc ID</th>
+<th>Authoritative Source</th>
+<th>Domain</th>
+<th>Key Scientific Grounding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOC-FAO-2020-GSOC</td>
+<td>FAO (2020) Recarbonizing Global Soils</td>
+<td>Soil Health</td>
+<td>Crop residue retention + diverse cover crops increase SOC by 0.2-0.8 t C/ha/yr.</td>
+</tr>
+<tr>
+<td>DOC-IPCC-2019-SRCCL</td>
+<td>IPCC (2019) Climate Change and Land</td>
+<td>Climate &amp; Land</td>
+<td>Conservation agriculture with mulch reduces soil surface evaporation by 20-35%.</td>
+</tr>
+<tr>
+<td>DOC-IPBES-2019-GLOBAL</td>
+<td>IPBES (2019) Global Biodiversity Assessment</td>
+<td>Biodiversity</td>
+<td>75% of terrestrial environment severely altered; wild pollinators require floral buffers.</td>
+</tr>
+<tr>
+<td>DOC-NATURE-2012-TILMAN</td>
+<td>Tilman et al. (Nature 2012)</td>
+<td>Biodiversity</td>
+<td>High plant species richness enhances drought resistance and biomass stability.</td>
+</tr>
+<tr>
+<td>DOC-SCIENCE-2020-DIAZ</td>
+<td>Díaz et al. (Science 2020)</td>
+<td>Ecosystem Services</td>
+<td>Functional diversity across trophic levels stabilizes ecosystem resilience.</td>
+</tr>
+<tr>
+<td>DOC-FAO-2018-AGROECO</td>
+<td>FAO (2018) Agroecology 10 Elements</td>
+<td>Agroecology</td>
+<td>Diversified crop rotations and livestock integration maximize circular bio-economy.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Version</th>
+<th>Production Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frontend UI</td>
+<td>React + TypeScript</td>
+<td>19.0.0</td>
+<td>Reactive command console with 7-stage Reasoning HUD</td>
+</tr>
+<tr>
+<td>Styling</td>
+<td>Tailwind CSS</td>
+<td>3.4.17</td>
+<td>High-density dark-mode environmental command aesthetics</td>
+</tr>
+<tr>
+<td>Frontend Build</td>
+<td>Vite</td>
+<td>6.4.3</td>
+<td>Optimized production bundle with SPA rewriting</td>
+</tr>
+<tr>
+<td>Backend API</td>
+<td>FastAPI + Uvicorn</td>
+<td>0.115.0</td>
+<td>Asynchronous high-performance REST API</td>
+</tr>
+<tr>
+<td>Data Validation</td>
+<td>Pydantic</td>
+<td>2.10.6</td>
+<td>Strict runtime schema enforcement and validation</td>
+</tr>
+<tr>
+<td>Vector Database</td>
+<td>ChromaDB</td>
+<td>0.6.3</td>
+<td>Persistent document embedding storage and semantic search</td>
+</tr>
+<tr>
+<td>Relational DB</td>
+<td>SQLite / SQLAlchemy</td>
+<td>3.x / 2.0.38</td>
+<td>Session state, conversation history, and scientific sources</td>
+</tr>
+<tr>
+<td>AI / LLM Layer</td>
+<td>OpenAI / Claude API</td>
+<td>v1 / v3</td>
+<td>LLM reasoning with offline rule-based deterministic fallback</td>
+</tr>
+<tr>
+<td>Backend Cloud</td>
+<td>Render Web Service</td>
+<td>Python 3.11.9</td>
+<td>Auto-indexing container with dynamic PORT and health checks</td>
+</tr>
+<tr>
+<td>Frontend Cloud</td>
+<td>Vercel</td>
+<td>Vite Framework</td>
+<td>Global edge CDN with automated HTTPS and asset caching</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Table Name</th>
+<th>Primary Purpose</th>
+<th>Key Columns</th>
+<th>Relationships</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sessions</td>
+<td>Tracks active user sessions</td>
+<td>id, created_at, last_active, user_metadata</td>
+<td>1-to-many with messages &amp; contexts</td>
+</tr>
+<tr>
+<td>messages</td>
+<td>Chronological chat history</td>
+<td>id, session_id, role, content, timestamp, token_count</td>
+<td>Belongs to session</td>
+</tr>
+<tr>
+<td>session_contexts</td>
+<td>Segmented cumulative ecological state</td>
+<td>id, session_id, soil_data, climate_data, vegetation_data</td>
+<td>Belongs to session</td>
+</tr>
+<tr>
+<td>sources</td>
+<td>Master catalog of scientific papers</td>
+<td>id, doc_id, title, organization, year, doi, verified</td>
+<td>Referenced by recommendations</td>
+</tr>
+<tr>
+<td>interventions</td>
+<td>Catalog of tested ecological interventions</td>
+<td>id, name, domain, intensity, expected_soc_delta, citations</td>
+<td>Used in simulation engine</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Functionality</th>
+<th>Status on Render</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>/</td>
+<td>Root discovery path returning service metadata and documentation links</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/health</td>
+<td>Health diagnostic returning vector doc count and DB status</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/understand</td>
+<td>Parses query, extracts 20+ variables, generates missing questions</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/graph</td>
+<td>Returns default 29-node biophysical directed causal relationship graph</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/graph</td>
+<td>Returns state-calibrated graph with active stress paths highlighted</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/simulate</td>
+<td>Runs non-linear empirical simulation across 1-5 year horizons</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/retrieve</td>
+<td>ChromaDB hybrid retrieval returning ranked evidence chunks with scores</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/chat</td>
+<td>Primary conversational endpoint executing full 7-stage reasoning flow</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/sources</td>
+<td>Returns catalog of peer-reviewed scientific sources and DOIs</td>
+<td>200 OK Live</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/session/{id}/context</td>
+<td>Fetches segmented multi-turn context across 7 categories</td>
+<td>200 OK Live</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+<th>Required?</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APP_ENV</td>
+<td>Runtime environment (development</td>
+<td>production)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>PORT</td>
+<td>Listening port for uvicorn (Render sets dynamically)</td>
+<td>No</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>FRONTEND_URL</td>
+<td>Target frontend URL for CORS origin allowance</td>
+<td>No</td>
+<td>https://darukaa-biodiversity-ai.vercel.app</td>
+</tr>
+<tr>
+<td>ALLOWED_ORIGINS</td>
+<td>Comma-separated CORS origins (wildcards supported)</td>
+<td>No</td>
+<td>https://*.vercel.app,http://localhost:3000</td>
+</tr>
+<tr>
+<td>OPENAI_API_KEY</td>
+<td>Optional LLM key (offline deterministic mode operates if empty)</td>
+<td>No</td>
+<td>None (Fully functional offline)</td>
+</tr>
+<tr>
+<td>CHROMA_PERSIST_DIR</td>
+<td>Storage path for ChromaDB vector embeddings</td>
+<td>No</td>
+<td>data/chroma_db</td>
+</tr>
+<tr>
+<td>VITE_API_URL</td>
+<td>Frontend environment variable targeting Render backend</td>
+<td>Yes (Prod)</td>
+<td>https://darukaa-biodiversity-backend.onrender.com</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Scenario Name</th>
+<th>Region &amp; Context</th>
+<th>Environmental Crisis</th>
+<th>Prescribed 10-Point Protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon Basin Sector 04B</td>
+<td>Amazon Basin (Brazil)</td>
+<td>SOC depleted to 0.3%, water retention -58%, severe pollinator habitat loss.</td>
+<td>Multi-species legume cover crop + riparian hedgerow buffer + biochar retention swales.</td>
+</tr>
+<tr>
+<td>Cerrado Fringe C-12</td>
+<td>Cerrado Savannah (Brazil)</td>
+<td>Heavy topsoil compaction, runoff +280%, monoculture soybean soil oxidation.</td>
+<td>Contour subsoiling without inversion + native perennial corridor + mycorrhizal inoculation.</td>
+</tr>
+<tr>
+<td>Rift Valley Water Deficit</td>
+<td>Rift Valley (East Africa)</td>
+<td>Baseflow dried by upstream extraction, severe drought, wetland shrinkage.</td>
+<td>Micro-catchment check dams + vetiver grass contour hedges + rainwater recharge wells.</td>
+</tr>
+<tr>
+<td>Atlantic Forest Fragment #8</td>
+<td>Atlantic Forest (Brazil)</td>
+<td>Isolated forest patches &lt;25ha, severe canopy edge drying, tree mortality +240%.</td>
+<td>Riparian stepping-stone reforestation + native fruit canopy corridors for primate transit.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Test Suite File</th>
+<th>Test Count</th>
+<th>Key Verifications</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_api_endpoints.py</td>
+<td>11 tests</td>
+<td>/health, /understand, /graph, /simulate, /retrieve, /chat, /sources</td>
+<td>11/11 PASSED</td>
+</tr>
+<tr>
+<td>test_citation_generation.py</td>
+<td>2 tests</td>
+<td>Verifies that citations reference authentic DOIs and real organizations</td>
+<td>2/2 PASSED</td>
+</tr>
+<tr>
+<td>test_conversation_memory.py</td>
+<td>2 tests</td>
+<td>Tests multi-turn context accumulation and session state retention</td>
+<td>2/2 PASSED</td>
+</tr>
+<tr>
+<td>test_environmental_cases.py</td>
+<td>5 tests</td>
+<td>Validates the 4 judge demo emergency scenarios and preset loading</td>
+<td>5/5 PASSED</td>
+</tr>
+<tr>
+<td>test_hallucination_safeguards.py</td>
+<td>3 tests</td>
+<td>Ensures zero hallucinated citations and rejection of prompt injections</td>
+<td>3/3 PASSED</td>
+</tr>
+<tr>
+<td>test_json_validation.py</td>
+<td>4 tests</td>
+<td>Pydantic v2 schema compliance for all request and response models</td>
+<td>4/4 PASSED</td>
+</tr>
+<tr>
+<td>test_missing_variable_detection.py</td>
+<td>3 tests</td>
+<td>Evaluates incomplete query scoring and clarifying question generation</td>
+<td>3/3 PASSED</td>
+</tr>
+<tr>
+<td>test_multi_metric_reasoning.py</td>
+<td>3 tests</td>
+<td>Enforces simultaneous coupling of &gt;=3 biophysical variables</td>
+<td>3/3 PASSED</td>
+</tr>
+<tr>
+<td>test_rag_retrieval.py</td>
+<td>3 tests</td>
+<td>Tests ChromaDB cosine distance ranking and variable overlap boosting</td>
+<td>3/3 PASSED</td>
+</tr>
+<tr>
+<td>test_recommendations.py</td>
+<td>1 test</td>
+<td>Verifies 10-point recommendation schema compliance and trade-off fields</td>
+<td>1/1 PASSED</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Evaluation Area</th>
+<th>How DARUKAA.EARTH Solves It</th>
+<th>Verification File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. Depth of Reasoning</td>
+<td>Multi-metric causal engine coupling &gt;=3 environmental variables through a 29-node directed graph.</td>
+<td>app/reasoning/engine.py</td>
+</tr>
+<tr>
+<td>B. Scientific Grounding</td>
+<td>Strict zero-hallucination policy. 12 peer-reviewed publications from FAO, IPCC, IPBES, Nature, Science.</td>
+<td>data/knowledge/scientific_knowledge_seed.json</td>
+</tr>
+<tr>
+<td>C. Knowledge System</td>
+<td>ChromaDB vector store with hybrid semantic retrieval and variable-overlap re-ranking.</td>
+<td>app/rag/retriever.py</td>
+</tr>
+<tr>
+<td>D. Conversational Intelligence</td>
+<td>Missing-variable interrogation; 20+ variable query parsing; multi-turn context accumulation.</td>
+<td>app/memory/query_understander.py</td>
+</tr>
+<tr>
+<td>E. Output Clarity</td>
+<td>Rigorous 10-point actionable protocol cards, 7-stage Reasoning HUD, and interactive graph.</td>
+<td>web/src/components/RecommendationCard.tsx</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
