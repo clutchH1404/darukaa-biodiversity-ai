@@ -2,6 +2,7 @@
 ## AI Biodiversity Intelligence & Ecological Causal Reasoning Console
 ### Darukaa.Earth AI Biodiversity Intelligence Chatbot Challenge
 
+🔗 **View Project:** https://darukaa-biodiversity-ai-six.vercel.app/
 [![CI/CD Pipeline](https://github.com/clutchH1404/darukaa-biodiversity-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/clutchH1404/darukaa-biodiversity-ai)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.14-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/backend-FastAPI-009688.svg)](https://fastapi.tiangolo.com/)
@@ -472,6 +473,7 @@ pytest -v tests/
 - **Local Web Console**: `http://localhost:3000`
 - **FastAPI Documentation**: `https://darukaa-biodiversity-backend.onrender.com/docs`
 - **Streamlit Dashboard**: `http://localhost:8501`
+- **Deployed Link**:`https://darukaa-biodiversity-ai-six.vercel.app/`
 
 ---
 
